@@ -1,10 +1,15 @@
 import express from 'express'
 import mongoose from 'mongoose'
+import {createRoutes} from './routes/createRoutes'
 import {config} from 'dotenv'
 
 config()
 
 const app = express()
+
+app.use(express.json())
+
+createRoutes(app)
 
 const start = async () => {
 	try {
